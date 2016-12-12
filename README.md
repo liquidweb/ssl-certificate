@@ -19,7 +19,7 @@ $certificate = SslCertificate::createForHostName('liquidweb.com');
 $certificate->getIssuer(); // returns "GlobalSign Extended Validation CA - SHA256 - G2"
 $certificate->isValid(); // returns true if the certificate is currently valid
 $certificate->isTrusted(); // returns true if the certificate is trusted by default
-$certificate->isClrRevoked(); // returns bool of revoked status, or null if no list provided
+$certificate->isRevoked(); // returns bool of revoked status, or null if no list provided
 $certificate->hasSslChain(); // returns bool of ssl chain status
 $certificate->expirationDate(); // returns an instance of Carbon
 $certificate->expirationDate()->diffInDays(); // returns an int

@@ -2,7 +2,7 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
-## 1.1.2 - 2016-12-12
+## 2.0.0 - 2016-12-12
 
 - Update CHANGELOG.md file
 - Add etsy/phan support
@@ -10,6 +10,16 @@ All notable changes to `ssl-certificate` will be documented in this file
 - Better PHPDocs and Coding standards all over
 - Updated tests to match code changes
 - Refactor SslCertificate revoked status related code
+    - Made isClrRevoked private, was previously public
+    - Added new public function isRevoked
+
+## 1.1.3 - 2016-12-12
+
+- Damage control version; set to an older point than 1.1.2 in order to ensure proper versioning.
+
+## 1.1.2 - 2016-12-12
+
+- Accidental release; meant to be a Major version bump as some changes are not backwards-compatible.
 
 ## 1.1.1 - Never Released
 
