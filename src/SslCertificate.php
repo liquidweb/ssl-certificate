@@ -298,7 +298,7 @@ class SslCertificate
 
     public function isSelfSigned()
     {
-      // Get the issuer data
+        // Get the issuer data
         $url = $this->getIssuer();
       // make sure we don't include wildcard if it's there...
         if (starts_with($url, '*.') === true) {
@@ -317,7 +317,6 @@ class SslCertificate
         }
 
       // default to return null; this means maybe
-        return null;
     }
 
     public function appliesToUrl(string $url): bool

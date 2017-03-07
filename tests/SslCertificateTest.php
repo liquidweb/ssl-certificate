@@ -175,8 +175,7 @@ class SslCertificateTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->certificate->isValidUntil(Carbon::now()->addDays(1)));     // 17/08   16:51 - False
     }
 
-
-        /** @test */
+    /** @test */
     public function it_can_determine_if_the_certificate_is_valid_date_function()
     {
         // Start date of certificate is: 19/05/2016 16:50
