@@ -9,7 +9,7 @@ function verifyWebUrl(string $protocol) : bool
 
 function isValidFqdn($domain): bool
 {
-    if (! filter_var($domain, FILTER_VALIDATE_DOMAIN)) {
+    if (filter_var($domain, FILTER_VALIDATE_DOMAIN) === false) {
         return false;
     }
 
@@ -18,7 +18,7 @@ function isValidFqdn($domain): bool
 
 function isValidUrl($domain): bool
 {
-    if (! filter_var($domain, FILTER_VALIDATE_URL)) {
+    if (filter_var($domain, FILTER_VALIDATE_URL) === false) {
         return false;
     }
 

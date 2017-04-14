@@ -94,8 +94,8 @@ class SslChain
 
     public function getIssuerOrganizationUnitName(): string
     {
-        if (isset($this->issuer['OU'])) {
-            if (is_array($this->issuer['OU'])) {
+        if (isset($this->issuer['OU']) === true) {
+            if (is_array($this->issuer['OU']) === true) {
                 return $this->issuer['OU'][0] ?? '';
             }
         }
@@ -135,7 +135,7 @@ class SslChain
 
     public function isValid()
     {
-        if (! Carbon::now()->between($this->validFromDate(), $this->expirationDate())) {
+        if (Carbon::now()->between($this->validFromDate(), $this->expirationDate()) === false) {
             return false;
         }
 
@@ -144,7 +144,7 @@ class SslChain
 
     public function isValidUntil(Carbon $carbon): bool
     {
-        if ($this->expirationDate()->gt($carbon)) {
+        if ($this->expirationDate()->gt($carbon) === true) {
             return false;
         }
 

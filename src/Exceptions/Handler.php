@@ -18,19 +18,19 @@ class Handler
     public function downloadHandler(Url $parsedUrl)
     {
         $errorMsg = $this->thrown->getMessage();
-        if (str_contains($errorMsg, 'getaddrinfo failed')) {
+        if (str_contains($errorMsg, 'getaddrinfo failed') === true) {
             throw CouldNotDownloadCertificate::hostDoesNotExist($parsedUrl->getHostName());
         }
 
-        if (str_contains($errorMsg, 'error:14090086')) {
+        if (str_contains($errorMsg, 'error:14090086') === true) {
             throw CouldNotDownloadCertificate::noCertificateInstalled($parsedUrl->getHostName());
         }
 
-        if (str_contains($errorMsg, 'error:14077410') || str_contains($errorMsg, 'error:140770FC')) {
+        if (str_contains($errorMsg, 'error:14077410') === true || str_contains($errorMsg, 'error:140770FC') === true) {
             throw CouldNotDownloadCertificate::failedHandshake($parsedUrl);
         }
 
-        if (str_contains($errorMsg, '(Connection timed out)')) {
+        if (str_contains($errorMsg, '(Connection timed out)') === true) {
             throw CouldNotDownloadCertificate::connectionTimeout($parsedUrl->getTestURL());
         }
 

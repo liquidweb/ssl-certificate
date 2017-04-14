@@ -34,14 +34,14 @@ class SslCertificate
     /** @var array */
     protected $connectionMeta = [];
 
-    /** @var SslRevocationList */
-    protected $crl;
-
     /** @var array */
     protected $crlLinks = [];
 
+    /** @var SslRevocationList */
+    protected $crl = null;
+
     /** @var Carbon */
-    protected $revokedTime;
+    protected $revokedTime = null;
 
     public static function createForHostName(string $url, int $timeout = 30): SslCertificate
     {
@@ -73,31 +73,6 @@ class SslCertificate
         return $crlLinks;
     }
 
-    private function getRevokedDate()
-    {
-        foreach ($this->crl->getRevokedList() as $broke) {
-            if ($this->serial->equals($broke['userCertificate'])) {
-                return new Carbon($broke['revocationDate']['utcTime']);
-            }
-        }
-    }
-
-    private function isClrRevoked()
-    {
-        if (! $this->hasCrlLink()) {
-            return;
-        }
-        foreach ($this->crl->getRevokedList() as $broke) {
-            if ($this->serial->equals($broke['userCertificate'])) {
-                $this->trusted = false;
-
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private static function parseCertChains(array $chains): array
     {
         $output = [];
@@ -106,6 +81,26 @@ class SslCertificate
         }
 
         return $output;
+    }
+
+
+    public function withSslCrlCheck(): SslCertificate
+    {
+        $links = $this->getCrlLinks();
+        if (is_null($links) === true || empty($links) === true) {
+            return $this;
+        }
+        $this->crl = SslRevocationList::createFromUrl($links[0]);
+
+        foreach ($this->crl->getRevokedList() as $revoked) {
+            if ($this->serial->equals($revoked['userCertificate'])) {
+                $this->trusted = false;
+                $this->revoked = true;
+                $this->revokedTime = new Carbon($revoked['revocationDate']['utcTime']);
+            }
+        }
+
+        return $this;
     }
 
     public function __construct(array $downloadResults)
@@ -121,9 +116,6 @@ class SslCertificate
 
         if (isset($downloadResults['cert']['extensions']['crlDistributionPoints'])) {
             $this->crlLinks = self::parseCrlLinks($downloadResults['cert']['extensions']['crlDistributionPoints']);
-            $this->crl = SslRevocationList::createFromUrl($this->getCrlLinks()[0]);
-            $this->revoked = $this->isClrRevoked();
-            $this->revokedTime = $this->getRevokedDate();
         }
     }
 

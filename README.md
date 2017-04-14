@@ -22,17 +22,23 @@ Additionally, this package tracks and provides methods to view SSL Chain informa
 Here are a few examples:
 
 ```php
-$certificate = SslCertificate::createForHostName('liquidweb.com');
+$certificate = SslCertificate::createForHostName('liquidweb.com'); // Basic SSL test
+$certificateWithCrl = (SslCertificate::createForHostName('liquidweb.com'))->withSslCrlCheck(); // SSL test with CRL checks
 
 $certificate->getIssuer(); // returns "GlobalSign Extended Validation CA - SHA256 - G2"
 $certificate->isValid(); // returns true if the certificate is currently valid
 $certificate->isTrusted(); // returns true if the certificate is trusted by default
-$certificate->isRevoked(); // returns bool of revoked status, or null if no list provided
 $certificate->hasSslChain(); // returns bool of ssl chain status
 $certificate->expirationDate(); // returns an instance of Carbon
 $certificate->expirationDate()->diffInDays(); // returns an int
 $certificate->getSignatureAlgorithm(); // returns a string
 $certificate->getSerialNumber(); // returns a string
+
+// methods that require CRL test
+$certificateWithCrl->isRevoked(); // returns bool of revoked status, or null if no list provided
+$certificateWithCrl->getCrlRevokedTime(); // returns a Carbon instance of the CRL revocation time
+$certificateWithCrl->isValid(); // results may vary from `certificate` if the SSL is CRL revoked
+$certificateWithCrl->isTrusted(); // results may vary from `certificate` if the SSL is CRL revoked
 ```
 
 ## Installation
