@@ -23,7 +23,7 @@ Here are a few examples:
 
 ```php
 $certificate = SslCertificate::createForHostName('liquidweb.com'); // Basic SSL test
-$certificateWithCrl = (SslCertificate::createForHostName('liquidweb.com'))->withSslCrlCheck(); // SSL test with CRL checks
+$certificateWithCrl = SslCertificate::createForHostName('liquidweb.com')->withSslCrlCheck(); // SSL test with CRL checks
 
 $certificate->getIssuer(); // returns "GlobalSign Extended Validation CA - SHA256 - G2"
 $certificate->isValid(); // returns true if the certificate is currently valid
@@ -161,6 +161,13 @@ $certificate->isValidUntil(Carbon::now()->addDays(7)); // returns a boolean
 
 ```php
 $certificate->isExpired(); // returns a boolean if expired
+```
+
+### Determining if a certificate has been revoked
+
+```php
+$certificate = SslCertificate::createForHostName('liquidweb.com')->withSslCrlCheck();
+$certificate->isRevoked();
 ```
 
 ## Changelog
