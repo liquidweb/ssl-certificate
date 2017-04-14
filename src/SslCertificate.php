@@ -99,6 +99,7 @@ class SslCertificate
                 $this->revokedTime = new Carbon($revoked['revocationDate']['utcTime']);
             }
         }
+        $this->revoked = false;
 
         return $this;
     }

@@ -10,9 +10,11 @@ class SslCertificateDownloadsTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_can_create_an_instance_for_the_given_host()
     {
-        $downloadedCertificate = SslCertificate::createForHostName('spatie.be');
+        $downloadedCertificate = SslCertificate::createForHostName('liquidweb.com')->withSslCrlCheck();
 
-        $this->assertSame('spatie.be', $downloadedCertificate->getDomain());
+        $this->assertSame('www.liquidweb.com', $downloadedCertificate->getDomain());
+        $this->assertSame(true, $downloadedCertificate->isValid());
+        $this->assertSame(false, $downloadedCertificate->isRevoked());
     }
 
     /** @test */
