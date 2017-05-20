@@ -2,6 +2,11 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
+## 2.5.0 - 2017-05-20
+- Delay CRL check from being early loaded when constructing class.
+    - Added a new withSslCrlCheck method to pull crl status.
+- Update to PHPUnit 6.1.0 and fix test to reflect changes.
+
 ## 2.4.2 - 2016-03-06
 - Fix bug in isSelfSigned method
 
