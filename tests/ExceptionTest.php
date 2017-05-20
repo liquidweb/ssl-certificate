@@ -2,7 +2,7 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\Url;
 use LiquidWeb\SslCertificate\Downloader;
 use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
