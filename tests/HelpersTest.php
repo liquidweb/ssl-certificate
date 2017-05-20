@@ -2,7 +2,7 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class HelpersTest extends TestCase
 {

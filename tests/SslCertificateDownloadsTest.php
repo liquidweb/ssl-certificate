@@ -2,7 +2,7 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\SslCertificate;
 
 class SslCertificateDownloadsTest extends TestCase
