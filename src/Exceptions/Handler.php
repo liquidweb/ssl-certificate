@@ -26,7 +26,7 @@ class Handler
             throw CouldNotDownloadCertificate::noCertificateInstalled($parsedUrl->getHostName());
         }
 
-        if (str_contains($errorMsg, 'error:14077410') === true || str_contains($errorMsg, 'error:140770FC') === true) {
+        if (str_contains($errorMsg, 'error:14077410') === true || str_contains($errorMsg, 'error:140770FC') === true || str_contains($errorMsg, 'error:14094410:SSL')) {
             throw CouldNotDownloadCertificate::failedHandshake($parsedUrl);
         }
 
