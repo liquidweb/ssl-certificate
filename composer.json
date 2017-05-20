@@ -16,6 +16,9 @@
             "role": "Developer"
         }
     ],
+    "suggests" : {
+        "ext-gmp": "This helps to speed up the phpseclib functions, highly suggested tho not required.",
+    },
     "require": {
         "php": "^7.0",
         "ext-openssl": "*",

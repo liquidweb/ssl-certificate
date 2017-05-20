@@ -49,6 +49,8 @@ You can install the package via composer:
 composer require liquidweb/ssl-certificate
 ```
 
+While not required it is highly suggested to install the PHP gmp extension as this will help speed up the CRL verification methods. This is due to the usage of phpseclib to work with decoding and comparing of ASN1 serials in the CRL lists.
+
 ## Usage
 
 You can create an instance of `LiquidWeb\SslCertificate\SslCertificate` with this named constructor:
