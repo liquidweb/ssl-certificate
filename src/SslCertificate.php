@@ -83,7 +83,6 @@ class SslCertificate
         return $output;
     }
 
-
     public function withSslCrlCheck(): SslCertificate
     {
         $links = $this->getCrlLinks();
@@ -97,10 +96,12 @@ class SslCertificate
                 $this->trusted = false;
                 $this->revoked = true;
                 $this->revokedTime = new Carbon($revoked['revocationDate']['utcTime']);
+
                 return $this;
             }
         }
         $this->revoked = false;
+
         return $this;
     }
 
