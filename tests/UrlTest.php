@@ -2,11 +2,11 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\Url;
 use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
 
-class UrlTest extends PHPUnit_Framework_TestCase
+class UrlTest extends TestCase
 {
     /** @test */
     public function it_can_determine_a_host_name()

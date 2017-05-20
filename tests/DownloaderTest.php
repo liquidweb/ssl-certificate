@@ -2,12 +2,12 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\Downloader;
 use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
 use LiquidWeb\SslCertificate\Exceptions\CouldNotDownloadCertificate;
 
-class DownloaderTest extends PHPUnit_Framework_TestCase
+class DownloaderTest extends TestCase
 {
     /** @test */
     public function it_can_download_a_certificate_from_a_host_name()

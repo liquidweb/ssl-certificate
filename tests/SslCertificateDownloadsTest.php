@@ -2,10 +2,10 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\SslCertificate;
 
-class SslCertificateDownloadsTest extends PHPUnit_Framework_TestCase
+class SslCertificateDownloadsTest extends TestCase
 {
     /** @test */
     public function it_can_create_an_instance_for_the_given_host()

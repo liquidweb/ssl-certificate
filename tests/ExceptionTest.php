@@ -2,13 +2,13 @@
 
 namespace LiquidWeb\SslCertificate\Test;
 
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\Url;
 use LiquidWeb\SslCertificate\Downloader;
 use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
 use LiquidWeb\SslCertificate\Exceptions\CouldNotDownloadCertificate;
 
-class ExceptionTest extends PHPUnit_Framework_TestCase
+class ExceptionTest extends TestCase
 {
     /** @test */
     public function it_can_throw_invalid_url_exceptions_dns()

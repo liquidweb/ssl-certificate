@@ -3,10 +3,10 @@
 namespace LiquidWeb\SslCertificate\Test;
 
 use Carbon\Carbon;
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 use LiquidWeb\SslCertificate\SslChain;
 
-class SslChainTest extends PHPUnit_Framework_TestCase
+class SslChainTest extends TestCase
 {
     /** @var SslChain */
     protected $chain;
