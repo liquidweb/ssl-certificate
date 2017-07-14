@@ -2,6 +2,9 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
+## 2.5.1 - 2017-07-14
+- Fix issue when only provided a TLD; package will now throw an exception.
+
 ## 2.5.0 - 2017-05-20
 - Delay CRL check from being early loaded when constructing class.
     - Added a new withSslCrlCheck method to pull crl status.
