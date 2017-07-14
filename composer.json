@@ -22,13 +22,13 @@
     "require": {
         "php": "^7.0",
         "ext-openssl": "*",
-        "league/uri": "^4.2",
-        "nesbot/carbon": "^1.21",
-        "phpseclib/phpseclib": "^2.0.3"
+        "league/uri": "^5.0",
+        "nesbot/carbon": "^1.22.1",
+        "phpseclib/phpseclib": "^2.0.6"
     },
     "require-dev": {
         "ext-ast": "*",
-        "phpstan/phpstan": "^0.4.2",
+        "phpstan/phpstan": "^0.7.0",
         "phpunit/phpunit": "6.1.*"
     },
     "autoload": {
@@ -49,5 +49,6 @@
     },
     "config": {
         "sort-packages": true
-  }
+  },
+  "prefer-stable": true
 }
