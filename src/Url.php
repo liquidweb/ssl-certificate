@@ -38,9 +38,9 @@ class Url
         // Verify parsing has a host
         if (is_null($this->parsedUrl['host'])) {
             try {
-              $this->parsedUrl = $parser->parse('https://'.$this->inputUrl);
+                $this->parsedUrl = $parser->parse('https://'.$this->inputUrl);
             } catch (\Exception $e) {
-              throw InvalidUrl::couldNotValidate($url);
+                throw InvalidUrl::couldNotValidate($url);
             }
             if (is_null($this->parsedUrl['host'])) {
                 throw InvalidUrl::couldNotDetermineHost($url);
