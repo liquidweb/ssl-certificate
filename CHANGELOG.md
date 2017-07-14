@@ -2,6 +2,10 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
+## 2.5.2 - 2017-07-14
+- Update composer dependency packages.
+- Update Url.php class for new League UriParser.
+
 ## 2.5.1 - 2017-07-14
 - Fix issue when only provided a TLD; package will now throw an exception.
 
