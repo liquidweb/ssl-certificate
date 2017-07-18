@@ -338,12 +338,16 @@ class SslCertificate
 
     protected function wildcardHostCoversHost(string $wildcardHost, string $host): bool
     {
+        if ($host === $wildcardHost) {
+            return true;
+        }
+
         if (! starts_with($wildcardHost, '*')) {
             return false;
         }
 
         $wildcardHostWithoutWildcard = substr($wildcardHost, 2);
 
-        return ends_with($host, $wildcardHostWithoutWildcard);
+        return substr_count($wildcardHost, '.') >= substr_count($host, '.') && ends_with($host, $wildcardHostWithoutWildcard);
     }
 }
