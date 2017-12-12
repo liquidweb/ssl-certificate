@@ -65,6 +65,7 @@ class Url
         if (null === $this->ipAddress) {
             throw InvalidUrl::couldNotResolveDns($this->inputUrl);
         }
+
         return $this->ipAddress;
     }
 
