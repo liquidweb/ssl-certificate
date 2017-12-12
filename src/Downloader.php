@@ -5,7 +5,6 @@ namespace LiquidWeb\SslCertificate;
 use Throwable;
 use phpseclib\File\X509;
 use LiquidWeb\SslCertificate\Exceptions\Handler;
-use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
 
 class Downloader
 {
