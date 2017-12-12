@@ -21,6 +21,8 @@
     },
     "require": {
         "php": "^7.0",
+        "ext-mbstring": "*",
+        "ext-filter": "*",
         "ext-openssl": "*",
         "league/uri": "^5.0",
         "nesbot/carbon": "^1.22.1",

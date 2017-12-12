@@ -319,7 +319,7 @@ class SslCertificate
         if (starts_with($url, '*.') === true) {
             $url = substr($url, 2);
         }
-        $host = (new Url($url))->getHostName();
+        $host = (new Url($url))->getHostName() ?: $url;
 
         $certificateHosts = array_merge([$this->getCertificateDomain()], $this->getAdditionalDomains());
 

@@ -31,8 +31,8 @@ class SslCertificateDownloadsTest extends TestCase
     {
         $downloadedCertificate = SslCertificate::createForHostName('edellroot.badssl.com');
 
-        $this->assertSame(false, $downloadedCertificate->isSelfSigned());
-        $this->assertSame(false, $downloadedCertificate->appliesToUrl('badssl.com'));
+        $this->assertFalse($downloadedCertificate->isSelfSigned());
+        $this->assertFalse($downloadedCertificate->appliesToUrl('badssl.com'));
         $this->assertSame('edellroot.badssl.com', $downloadedCertificate->getDomain());
     }
 }

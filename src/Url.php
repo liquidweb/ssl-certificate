@@ -19,11 +19,16 @@ class Url
     /** @var string */
     protected $ipAddress;
 
-    private static function verifyAndGetDNS($domain): string
+    public function __toString()
+    {
+        return $this->getInputUrl();
+    }
+
+    private static function verifyAndGetDNS($domain): ?string
     {
         $domainIp = gethostbyname($domain);
         if (! filter_var($domainIp, FILTER_VALIDATE_IP)) {
-            throw InvalidUrl::couldNotResolveDns($domain);
+            return null;
         }
 
         return $domainIp;
@@ -55,8 +60,11 @@ class Url
         $this->validatedURL = $url;
     }
 
-    public function getIp(): string
+    public function getIp(): ?string
     {
+        if (null === $this->ipAddress) {
+            throw InvalidUrl::couldNotResolveDns($this->inputUrl);
+        }
         return $this->ipAddress;
     }
 

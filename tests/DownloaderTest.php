@@ -68,7 +68,7 @@ class DownloaderTest extends TestCase
     /** @test */
     public function it_throws_an_exception_for_non_existing_host()
     {
-        $this->expectException(InvalidUrl::class);
+        $this->expectException(CouldNotDownloadCertificate::class);
 
         Downloader::downloadCertificateFromUrl('spatie-non-existing.be');
     }

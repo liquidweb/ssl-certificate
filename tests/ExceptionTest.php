@@ -15,6 +15,7 @@ class ExceptionTest extends TestCase
     {
         $this->expectException(InvalidUrl::class);
         $url = new Url('http://googlecom');
+        $urlIp = $url->getIp();
     }
 
     /** @test */
