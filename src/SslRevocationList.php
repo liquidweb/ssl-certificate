@@ -30,7 +30,7 @@ class SslRevocationList
     /** @var array */
     protected $revokedCertsList = [];
 
-    public static function createFromUrl(string $url): SslRevocationList
+    public static function createFromUrl(string $url): self
     {
         $downloadResults = Downloader::downloadRevocationListFromUrl($url);
         $tbsCertList = $downloadResults['tbsCertList'];

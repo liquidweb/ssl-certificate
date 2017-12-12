@@ -11,7 +11,7 @@ class StreamConfig
      */
     protected $streamContext;
 
-    public static function configSecure(): StreamConfig
+    public static function configSecure(): self
     {
         $streamContext = stream_context_create(
             [
@@ -26,7 +26,7 @@ class StreamConfig
         return new static($streamContext);
     }
 
-    public static function configInsecure(): StreamConfig
+    public static function configInsecure(): self
     {
         $streamContext = stream_context_create(
             [
@@ -44,7 +44,7 @@ class StreamConfig
         return new static($streamContext);
     }
 
-    public static function configCrl(): StreamConfig
+    public static function configCrl(): self
     {
         $streamContext = stream_context_create(
             [
