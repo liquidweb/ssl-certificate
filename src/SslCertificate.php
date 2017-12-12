@@ -43,7 +43,7 @@ class SslCertificate
     /** @var Carbon */
     protected $revokedTime = null;
 
-    public static function createForHostName(string $url, int $timeout = 30): SslCertificate
+    public static function createForHostName(string $url, int $timeout = 30): self
     {
         $downloadResults = Downloader::downloadCertificateFromUrl($url, $timeout);
 
@@ -83,7 +83,7 @@ class SslCertificate
         return $output;
     }
 
-    public function withSslCrlCheck(): SslCertificate
+    public function withSslCrlCheck(): self
     {
         $links = $this->getCrlLinks();
         if (is_null($links) === true || empty($links) === true) {
@@ -294,11 +294,11 @@ class SslCertificate
     {
         // Get the issuer data
         $url = $this->getIssuer();
-      // make sure we don't include wildcard if it's there...
+        // make sure we don't include wildcard if it's there...
         if (starts_with($url, '*.') === true) {
             $url = substr($url, 2);
         }
-      //Try to parse the string
+        //Try to parse the string
         try {
             $issuerUrl = new Url($url);
         } catch (\Exception $e) {
@@ -306,7 +306,7 @@ class SslCertificate
             // If it's not a URL and is valid we can assume it's not self signed
             return false;
         }
-      // If it is a domain, run appliesToUrl
+        // If it is a domain, run appliesToUrl
         if ($this->appliesToUrl((string) $issuerUrl) === true) {
             return true;
         }

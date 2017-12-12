@@ -9,7 +9,7 @@ class IssuerMeta
     protected $organizationName;
     protected $organizationUnitName;
 
-    public static function fromRdnSequence(array $input): IssuerMeta
+    public static function fromRdnSequence(array $input): self
     {
         $items = [];
         foreach ($input as $arr) {
