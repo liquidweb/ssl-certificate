@@ -278,7 +278,8 @@ class SslCertificate
             return false;
         }
 
-        return $this->isValid($url);
+        // Verify SSL not expired
+        return $carbon->between($this->validFromDate(), $this->expirationDate());
     }
 
     public function isValidDate(Carbon $carbon): bool
