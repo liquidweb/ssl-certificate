@@ -34,7 +34,7 @@ class Downloader
             try {
                 // As the URL failed verification we set to false
                 $client = stream_socket_client(
-                    'ssl://' . $parsedUrl->getTestURL(),
+                    'ssl://'.$parsedUrl->getTestURL(),
                     $errorNumber,
                     $errorDescription,
                     $timeout,
