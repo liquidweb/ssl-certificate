@@ -27,14 +27,14 @@ class Downloader
             );
             unset($sslConfig);
         } catch (Throwable $thrown) {
-            // Try agian in insecure mode
+            // Try again in insecure mode
             $sslConfig = StreamConfig::configInsecure();
             $trusted = false;
 
             try {
                 // As the URL failed verification we set to false
                 $client = stream_socket_client(
-                    "ssl://{$parsedUrl->getTestURL()}",
+                    'ssl://' . $parsedUrl->getTestURL(),
                     $errorNumber,
                     $errorDescription,
                     $timeout,
