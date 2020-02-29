@@ -11,7 +11,7 @@ class SslCertificateTest extends TestCase
     /** @var SslCertificate */
     protected $certificate;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

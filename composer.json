@@ -6,7 +6,7 @@
         "ssl-certificate",
         "security"
     ],
-    "homepage": "https://github.com/mallardduck/ssl-certificate",
+    "homepage": "https://github.com/liquidweb/ssl-certificate",
     "license": "MIT",
     "authors": [
         {
@@ -16,16 +16,16 @@
             "role": "Developer"
         }
     ],
-    "suggests" : {
+    "suggest" : {
         "ext-gmp": "This helps to speed up the phpseclib functions, highly suggested tho not required."
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "ext-mbstring": "*",
         "ext-filter": "*",
         "ext-openssl": "*",
         "league/uri": "^5.0",
-        "nesbot/carbon": "^1.22.1",
+        "nesbot/carbon": "^2.28",
         "phpseclib/phpseclib": "^2.0.6"
     },
     "require-dev": {
