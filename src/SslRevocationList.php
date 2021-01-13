@@ -39,7 +39,7 @@ class SslRevocationList
         $expiration = $tbsCertList['nextUpdate']['utcTime'];
         $signature = $downloadResults['signature'];
         $signatureAlgorithm = $downloadResults['signatureAlgorithm'];
-        $certsList = $tbsCertList['revokedCertificates'];
+        $certsList = $tbsCertList['revokedCertificates'] ?? [];
 
         return new static($issuer, $createdAt, $expiration, $signature, $signatureAlgorithm, $certsList);
     }
