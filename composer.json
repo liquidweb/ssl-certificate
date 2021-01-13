@@ -47,7 +47,7 @@
         }
     },
     "scripts": {
-        "test": "php vendor/bin/phpunit --colors --debug  --coverage-text"
+        "test": "php -d xdebug.mode=coverage vendor/bin/phpunit --colors --coverage-text"
     },
     "config": {
         "sort-packages": true

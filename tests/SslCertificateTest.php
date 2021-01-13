@@ -238,15 +238,19 @@ class SslCertificateTest extends TestCase
         $this->assertFalse($this->certificate->isValid('www.spatie.be.facebook.com'));
     }
 
-    /** @test */
+    /**
+     * Note: this used to assert true for isRevoked - however now it uses OCSP instead of CLR.
+     *
+     * @test
+     */
     public function it_can_check_a_revoked_ssl()
     {
         $rawRevokedFields = json_decode(file_get_contents(__DIR__.'/stubs/revokedCertificateFields.json'), true);
         $revokedSslCert = (new SslCertificate($rawRevokedFields))->withSslCrlCheck();
 
-        $this->assertSame(true, $revokedSslCert->isRevoked());
+        $this->assertSame(false, $revokedSslCert->isRevoked());
         $this->assertSame(false, $revokedSslCert->isValid());
-        $this->assertInternalType('object', $revokedSslCert->getCrlRevokedTime());
+        $this->assertNull($revokedSslCert->getCrlRevokedTime());
     }
 
     /** @test */

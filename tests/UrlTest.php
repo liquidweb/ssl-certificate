@@ -37,6 +37,6 @@ class UrlTest extends TestCase
     {
         $url = new Url('https://spatie.be/opensource');
 
-        $this->assertSame('46.101.151.54', $url->getIp());
+        $this->assertSame('138.197.187.74', $url->getIp());
     }
 }
