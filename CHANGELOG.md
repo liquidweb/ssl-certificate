@@ -2,6 +2,10 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
+## 2.5.3 - 2020-01-13
+- Adjust tests for changing external variables (DNS and SSL changes)
+- Fix CLR checking bug for updated CLR/OCSP practices.
+
 ## 2.5.2 - 2017-07-14
 - Update composer dependency packages.
 - Update Url.php class for new League UriParser.
