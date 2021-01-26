@@ -2,6 +2,10 @@
 
 All notable changes to `ssl-certificate` will be documented in this file
 
+## 2.5.4 - 2020-01-26
+- Update carbon to `2.x` to modernize.
+
+
 ## 2.5.3 - 2020-01-13
 - Adjust tests for changing external variables (DNS and SSL changes)
 - Fix CLR checking bug for updated CLR/OCSP practices.
