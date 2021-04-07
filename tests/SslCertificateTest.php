@@ -11,7 +11,7 @@ class SslCertificateTest extends TestCase
     /** @var SslCertificate */
     protected $certificate;
 
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -73,13 +73,13 @@ class SslCertificateTest extends TestCase
     /** @test */
     public function it_can_get_the_raw_fields()
     {
-        $this->assertInternalType('array', $this->certificate->getCertificateFields());
+        $this->assertIsArray($this->certificate->getCertificateFields());
     }
 
     /** @test */
     public function it_can_get_the_chains()
     {
-        $this->assertInternalType('array', $this->certificate->getCertificateChains());
+        $this->assertIsArray($this->certificate->getCertificateChains());
     }
 
     /** @test */

@@ -12,7 +12,7 @@ class SslCertificateDownloadsTest extends TestCase
     {
         $downloadedCertificate = SslCertificate::createForHostName('liquidweb.com')->withSslCrlCheck();
 
-        $this->assertSame('www.liquidweb.com', $downloadedCertificate->getDomain());
+        $this->assertSame('*.liquidweb.com', $downloadedCertificate->getDomain());
         $this->assertSame(true, $downloadedCertificate->isValid());
         $this->assertSame(false, $downloadedCertificate->isRevoked());
     }

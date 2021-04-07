@@ -1,3 +1,5 @@
+os: linux
+dist: bionic
 language: php
 
 ## Run on container environment
@@ -9,8 +11,9 @@ cache:
     - $HOME/.composer/cache
 
 php:
-  - 7.1
-  - 7.2
+  - 7.3
+  - 7.4
+  - 8.0
 
 env:
   matrix:
@@ -24,7 +27,7 @@ before_script:
 
 script:
   - vendor/bin/phpstan analyse -l4 src tests
-  - phpunit --coverage-text --coverage-clover=coverage.clover
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
