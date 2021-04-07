@@ -26,7 +26,7 @@ before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction
 
 script:
-  - vendor/bin/phpstan analyse -l3 src tests
+  - vendor/bin/phpstan analyse -l2 src tests
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
