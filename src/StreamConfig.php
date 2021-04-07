@@ -2,7 +2,7 @@
 
 namespace LiquidWeb\SslCertificate;
 
-class StreamConfig
+final class StreamConfig
 {
     /**
      * The stream settings for the client.

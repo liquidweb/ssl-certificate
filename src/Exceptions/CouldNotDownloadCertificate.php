@@ -5,7 +5,7 @@ namespace LiquidWeb\SslCertificate\Exceptions;
 use Exception;
 use LiquidWeb\SslCertificate\Url;
 
-class CouldNotDownloadCertificate extends Exception
+final class CouldNotDownloadCertificate extends Exception
 {
     use TrackDomainTrait;
 

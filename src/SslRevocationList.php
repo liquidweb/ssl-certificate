@@ -4,7 +4,7 @@ namespace LiquidWeb\SslCertificate;
 
 use Carbon\Carbon;
 
-class SslRevocationList
+final class SslRevocationList
 {
     /** @var Carbon */
     protected $timestamp;

@@ -5,7 +5,7 @@ namespace LiquidWeb\SslCertificate;
 use League\Uri\Parser as UriParser;
 use LiquidWeb\SslCertificate\Exceptions\InvalidUrl;
 
-class Url
+final class Url
 {
     /** @var string */
     protected $inputUrl;

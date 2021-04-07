@@ -5,7 +5,7 @@ namespace LiquidWeb\SslCertificate;
 use Carbon\Carbon;
 use phpseclib\Math\BigInteger;
 
-class SslCertificate
+final class SslCertificate
 {
     /** @var bool */
     protected $trusted;

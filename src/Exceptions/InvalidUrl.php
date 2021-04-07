@@ -4,7 +4,7 @@ namespace LiquidWeb\SslCertificate\Exceptions;
 
 use Exception;
 
-class InvalidUrl extends Exception
+final class InvalidUrl extends Exception
 {
     use TrackDomainTrait;
 

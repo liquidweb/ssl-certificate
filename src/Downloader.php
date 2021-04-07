@@ -6,7 +6,7 @@ use Throwable;
 use phpseclib\File\X509;
 use LiquidWeb\SslCertificate\Exceptions\Handler;
 
-class Downloader
+final class Downloader
 {
     public static function downloadCertificateFromUrl(string $url, int $timeout = 30): array
     {

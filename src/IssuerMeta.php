@@ -2,7 +2,7 @@
 
 namespace LiquidWeb\SslCertificate;
 
-class IssuerMeta
+final class IssuerMeta
 {
     protected $commonName;
     protected $countryName;
